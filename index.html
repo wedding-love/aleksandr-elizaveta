@@ -36,7 +36,7 @@
 
     section, .music, .rsvp, .contacts-block, .wedding-block {
       margin: 0;
-      padding: 60px 20px;
+      padding: 70px 25px;
     }
 
     .hero, .wedding-block {
@@ -48,6 +48,53 @@
       --accent-dark: #b08968;
       --accent-light: #f5f0e8;
       --accent-text: #6b5b4b;
+    }
+
+    /* ===== АНИМАЦИИ ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      8% { transform: scale(1.13); }
+      16% { transform: scale(1); }
+      24% { transform: scale(1.18); }
+      32% { transform: scale(1); }
+    }
+
+    @keyframes gentleShake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      75% { transform: rotate(-2deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes softPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ===== ПЕРВЫЙ ЭКРАН ===== */
@@ -99,26 +146,26 @@
     .music {
       text-align: center;
       background: #ffffff;
-      padding: 30px 20px;
+      padding: 40px 25px;
     }
     .music button {
       background: transparent;
       border: none;
-      font-size: 44px;
+      font-size: 50px;
       cursor: pointer;
       color: #1e1e1e;
-      transition: transform 0.2s;
+      transition: transform 0.25s;
       padding: 0;
       width: auto;
       height: auto;
     }
     .music button:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
     .music-text {
-      font-size: 18px;
-      letter-spacing: 2px;
-      margin-top: 12px;
+      font-size: 20px;
+      letter-spacing: 3px;
+      margin-top: 14px;
       color: #2c2c2c;
     }
 
@@ -126,59 +173,63 @@
     .story {
       background: #ffffff;
       text-align: center;
-      padding: 60px 20px;
+      padding: 70px 25px;
     }
     .photos {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
+      gap: 28px;
       flex-wrap: nowrap;
-      margin-bottom: 35px;
+      margin-bottom: 40px;
       padding: 0 10px;
     }
     .photo {
       background: #fff;
-      padding: 14px 14px 22px 14px;
-      box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.1);
+      padding: 16px 16px 26px 16px;
+      box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.12);
       flex-shrink: 0;
-      max-width: 45%;
+      max-width: 46%;
+      transition: transform 0.4s ease;
+    }
+    .photo:hover {
+      animation: gentleShake 0.6s ease;
     }
     .photo img {
       width: 100%;
-      max-width: 200px;
+      max-width: 220px;
       height: auto;
-      aspect-ratio: 3 / 5;
+      aspect-ratio: 3 / 5.2;
       object-fit: cover;
       border-radius: 2px;
       display: block;
     }
     .photo:first-child {
-      transform: translateY(-6px) translateX(-3px) rotate(-3deg);
+      transform: translateY(-8px) translateX(-4px) rotate(-3deg);
     }
     .photo:last-child {
-      transform: translateY(6px) translateX(3px) rotate(3deg);
+      transform: translateY(8px) translateX(4px) rotate(3deg);
     }
     .love {
-      font-size: clamp(36px, 7vw, 60px);
-      margin-bottom: 16px;
+      font-size: clamp(40px, 8vw, 66px);
+      margin-bottom: 20px;
       font-weight: 400;
     }
-    .heart-icon {
-      color: #c41e3a;
-      font-size: 1.2em;
+    .love .amp-icon {
+      color: #1e1e1e;
+      font-size: 1em;
       display: inline-block;
     }
     .story .title {
-      font-size: clamp(22px, 5vw, 28px);
-      margin: 16px 0 12px;
+      font-size: clamp(26px, 6vw, 32px);
+      margin: 20px 0 14px;
       font-weight: 400;
     }
     .text {
-      max-width: 560px;
+      max-width: 600px;
       margin: 0 auto;
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 18px;
+      line-height: 1.8;
       color: #3e3e3e;
       padding: 0 15px;
     }
@@ -187,41 +238,41 @@
     .invite-block {
       background: #ffffff;
       text-align: center;
-      padding: 60px 20px;
+      padding: 70px 25px;
     }
     .frame {
       background: #fff;
-      padding: 20px 20px 30px 20px;
+      padding: 24px 24px 36px 24px;
       display: inline-block;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
-      margin-bottom: 35px;
+      box-shadow: 0 22px 40px -14px rgba(0,0,0,0.15);
+      margin-bottom: 40px;
       border-radius: 4px;
-      transition: transform 0.3s ease;
-      max-width: 90%;
+      transition: transform 0.35s ease;
+      max-width: 92%;
     }
     .frame:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
     }
     .frame img {
       width: 100%;
-      max-width: 420px;
+      max-width: 460px;
       height: auto;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 4 / 5.1;
       object-fit: cover;
       display: block;
       border-radius: 2px;
     }
     .invite-block h2 {
-      font-size: clamp(28px, 6vw, 42px);
-      margin-bottom: 20px;
+      font-size: clamp(32px, 7vw, 46px);
+      margin-bottom: 24px;
       font-weight: 400;
       color: #2c2c2c;
     }
     .invite-block p {
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto;
-      font-size: 16px;
-      line-height: 1.8;
+      font-size: 18px;
+      line-height: 1.9;
       color: #444;
       padding: 0 10px;
     }
@@ -230,32 +281,32 @@
     .calendar-block {
       background: #ffffff;
       text-align: center;
-      padding: 60px 20px;
+      padding: 70px 25px;
     }
     .month {
-      margin-bottom: 20px;
-      font-size: clamp(22px, 5vw, 30px);
+      margin-bottom: 24px;
+      font-size: clamp(26px, 6vw, 34px);
       font-weight: 400;
     }
     .weekdays {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      max-width: 340px;
-      margin: 0 auto 12px;
-      font-size: 13px;
+      max-width: 380px;
+      margin: 0 auto 14px;
+      font-size: 15px;
       font-weight: 500;
       color: #6b6b6b;
     }
     .days {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      max-width: 340px;
+      max-width: 380px;
       margin: 0 auto;
-      gap: 8px;
-      font-size: 16px;
+      gap: 10px;
+      font-size: 18px;
     }
     .days span {
-      padding: 6px 3px;
+      padding: 8px 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -265,12 +316,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
+      animation: heartbeat 1.8s infinite;
+      cursor: default;
     }
     .heart-number i {
       position: absolute;
-      font-size: 44px;
+      font-size: 48px;
       color: #c41e3a;
     }
     .heart-number span {
@@ -278,16 +331,16 @@
       z-index: 1;
       color: white;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 18px;
     }
     .calendar-date {
-      margin-top: 28px;
-      font-size: clamp(24px, 5vw, 30px);
+      margin-top: 32px;
+      font-size: clamp(28px, 6vw, 34px);
       font-weight: 400;
     }
     .footer-text {
-      margin-top: 20px;
-      font-size: 15px;
+      margin-top: 24px;
+      font-size: 17px;
       color: #4a4a4a;
     }
 
@@ -296,161 +349,181 @@
       background: var(--accent-light);
       color: var(--accent-text);
       text-align: center;
-      padding: 60px 20px;
+      padding: 70px 25px;
     }
     .location h2 {
-      font-size: clamp(32px, 7vw, 44px);
+      font-size: clamp(36px, 8vw, 50px);
       line-height: 1.2;
       font-weight: 400;
       color: var(--accent-dark);
     }
     .location .sub {
-      font-size: clamp(22px, 5vw, 32px);
+      font-size: clamp(26px, 6vw, 36px);
       opacity: 0.8;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       color: var(--accent-dark);
+    }
+    .info {
+      font-size: 18px;
     }
     .info .main {
       font-weight: 500;
-      margin-bottom: 10px;
-      font-size: 18px;
+      margin-bottom: 12px;
+      font-size: 20px;
     }
     .address {
-      font-size: 15px;
+      font-size: 17px;
       opacity: 0.9;
     }
     .btn-location {
       display: inline-block;
-      margin-top: 25px;
-      padding: 12px 26px;
+      margin-top: 30px;
+      padding: 14px 32px;
       border: 2px solid var(--accent);
       color: #fff;
       background: var(--accent);
       text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 1px;
-      transition: 0.2s;
+      font-size: 15px;
+      letter-spacing: 2px;
+      transition: 0.25s;
       border-radius: 50px;
     }
     .btn-location:hover {
       background: var(--accent-dark);
       border-color: var(--accent-dark);
       color: #fff;
+      transform: translateY(-3px);
     }
     .photos-loc {
-      margin-top: 35px;
+      margin-top: 40px;
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 30px;
       flex-wrap: wrap;
     }
     .polaroid-card {
       background: #fff;
-      padding: 8px 8px 14px 8px;
-      box-shadow: 0 10px 18px rgba(0,0,0,0.1);
+      padding: 10px 10px 18px 10px;
+      box-shadow: 0 12px 22px rgba(0,0,0,0.1);
       transform: rotate(var(--rot, 0deg));
-      max-width: 170px;
+      max-width: 180px;
+      transition: transform 0.4s ease;
+    }
+    .polaroid-card:hover {
+      animation: float 2s ease-in-out infinite;
     }
     .polaroid-card img {
       width: 100%;
-      max-width: 150px;
+      max-width: 160px;
       height: auto;
       aspect-ratio: 4 / 5;
       object-fit: cover;
       display: block;
     }
-    .p1-wrap { --rot: -6deg; position: relative; top: -8px; }
-    .p2-wrap { --rot: 6deg; position: relative; top: 12px; }
+    .p1-wrap { --rot: -6deg; position: relative; top: -10px; }
+    .p2-wrap { --rot: 6deg; position: relative; top: 14px; }
 
     /* ===== ТАЙМИНГ ДНЯ ===== */
     .timing {
       background: var(--accent-light);
       color: var(--accent-text);
       text-align: center;
-      padding: 60px 20px;
+      padding: 70px 25px;
     }
     .timing h2 { 
-      font-size: clamp(32px, 7vw, 44px); 
+      font-size: clamp(36px, 8vw, 50px); 
       font-weight: 400; 
       color: var(--accent-dark); 
     }
     .timing .sub {
-      font-size: clamp(22px, 5vw, 32px);
-      margin-bottom: 35px;
+      font-size: clamp(26px, 6vw, 36px);
+      margin-bottom: 45px;
       opacity: 0.8;
       color: var(--accent-dark);
     }
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 48px;
     }
     .item {
-      max-width: 340px;
+      max-width: 380px;
       margin: auto;
     }
-    .icon { font-size: 40px; margin-bottom: 10px; color: var(--accent); }
-    .time { font-size: clamp(24px, 5vw, 32px); font-weight: 400; margin-bottom: 6px; color: var(--accent-dark); }
-    .timing .title { font-size: 20px; font-weight: 500; color: var(--accent-text); }
-    .desc { font-size: 14px; opacity: 0.85; margin-top: 6px; font-style: italic; }
+    .icon { 
+      font-size: 46px; 
+      margin-bottom: 12px; 
+      color: var(--accent); 
+      transition: transform 0.3s ease;
+    }
+    .item:hover .icon {
+      animation: float 1.5s ease-in-out;
+    }
+    .time { font-size: clamp(28px, 6vw, 36px); font-weight: 400; margin-bottom: 8px; color: var(--accent-dark); }
+    .timing .title { font-size: 22px; font-weight: 500; color: var(--accent-text); }
+    .desc { font-size: 16px; opacity: 0.85; margin-top: 8px; font-style: italic; }
 
     /* ===== ДРЕСС-КОД, ДЕТАЛИ ===== */
     .dresscode-section, .wishes-section, .details-section {
       background: #ffffff;
       text-align: center;
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 60px 25px;
     }
     .dresscode-section h2, .wishes-section h2, .details-section h2 { 
-      font-size: clamp(30px, 6vw, 40px); 
-      margin-bottom: 10px; 
+      font-size: clamp(34px, 7vw, 44px); 
+      margin-bottom: 12px; 
       font-weight: 400; 
       color: var(--accent-dark); 
     }
     .subtitle {
-      font-size: clamp(20px, 4vw, 26px);
+      font-size: clamp(22px, 5vw, 28px);
       color: #a0a0a0;
-      margin-bottom: 22px;
+      margin-bottom: 26px;
     }
     .dresscode-section p, .wishes-section p, .details-section p {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 18px;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
     .btn-chat {
       display: inline-block;
-      padding: 12px 28px;
+      padding: 14px 34px;
       background: var(--accent);
       color: #fff;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 500;
-      font-size: 15px;
-      transition: 0.2s;
-      margin-top: 10px;
+      font-size: 16px;
+      letter-spacing: 1px;
+      transition: 0.25s;
+      margin-top: 12px;
       border: none;
     }
-    .btn-chat:hover { background: var(--accent-dark); }
+    .btn-chat:hover { 
+      background: var(--accent-dark); 
+      transform: translateY(-3px);
+    }
 
     /* ===== СЛАЙДЕР ===== */
     .slider-section {
       background: #ffffff;
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 60px 25px;
     }
     .slider-container {
       position: relative;
       overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.05);
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.06);
       aspect-ratio: 3 / 4;
       background: #f9f9f9;
     }
     .slider-wrapper {
       display: flex;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s ease;
       height: 100%;
     }
     .slide {
@@ -469,36 +542,39 @@
       background: var(--accent);
       color: white;
       border: none;
-      font-size: 26px;
-      width: 42px;
-      height: 42px;
+      font-size: 28px;
+      width: 46px;
+      height: 46px;
       cursor: pointer;
       border-radius: 50%;
-      transition: 0.2s;
+      transition: 0.25s;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
       z-index: 10;
     }
-    .slider-btn:hover { background: var(--accent-dark); }
-    .btn-prev { left: 12px; }
-    .btn-next { right: 12px; }
+    .slider-btn:hover { 
+      background: var(--accent-dark); 
+      transform: translateY(-50%) scale(1.08);
+    }
+    .btn-prev { left: 14px; }
+    .btn-next { right: 14px; }
     .slider-dots {
       text-align: center;
-      margin-top: 18px;
+      margin-top: 20px;
     }
     .dot {
       display: inline-block;
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: #ccc;
-      margin: 0 5px;
+      margin: 0 6px;
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.3s;
     }
-    .dot.active { background: var(--accent); width: 11px; height: 11px; }
+    .dot.active { background: var(--accent); width: 13px; height: 13px; }
 
     /* ===== ТАЙМЕР ===== */
     .wedding-block {
@@ -529,7 +605,7 @@
       z-index: 2;
       width: 100%;
       height: 100%;
-      padding: 60px 20px 50px 20px;
+      padding: 60px 25px 55px 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -537,24 +613,24 @@
     }
     
     .wedding-block h1 {
-      font-size: clamp(28px, 6vw, 56px);
-      letter-spacing: 3px;
+      font-size: clamp(30px, 7vw, 60px);
+      letter-spacing: 4px;
       font-weight: 400;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
       line-height: 1.3;
       margin: 0;
-      padding-top: 30px;
+      padding-top: 35px;
     }
     
     .wedding-block .timer {
       width: 100%;
-      max-width: 800px;
+      max-width: 850px;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: clamp(15px, 4vw, 40px);
+      gap: clamp(18px, 5vw, 45px);
       flex-wrap: wrap;
-      padding-bottom: 15px;
+      padding-bottom: 20px;
     }
     
     .wedding-block .timer .timer-item {
@@ -563,27 +639,28 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      min-width: 70px;
+      min-width: 80px;
       flex: 1;
-      max-width: 160px;
-      padding: 15px 8px;
+      max-width: 170px;
+      padding: 18px 10px;
     }
     
     .wedding-block .timer .timer-digit {
-      font-size: clamp(40px, 10vw, 75px);
+      font-size: clamp(44px, 11vw, 80px);
       font-weight: 400;
       line-height: 1;
-      text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
-      margin-bottom: 8px;
+      text-shadow: 2px 2px 14px rgba(0,0,0,0.7);
+      margin-bottom: 10px;
       display: block;
+      animation: softPulse 3s ease-in-out infinite;
     }
     
     .wedding-block .timer .timer-label {
-      font-size: clamp(11px, 2.5vw, 15px);
-      letter-spacing: 3px;
+      font-size: clamp(12px, 3vw, 17px);
+      letter-spacing: 4px;
       text-transform: uppercase;
       font-weight: 300;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
       display: block;
     }
 
@@ -592,25 +669,25 @@
       background: var(--accent-light);
       color: var(--accent-text);
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 25px;
     }
     .rsvp .container {
-      max-width: 520px;
+      max-width: 560px;
       margin: 0 auto;
     }
     .rsvp h2 { 
-      font-size: clamp(30px, 6vw, 44px); 
-      margin-bottom: 8px; 
+      font-size: clamp(34px, 7vw, 48px); 
+      margin-bottom: 10px; 
       font-weight: 400; 
       color: var(--accent-dark); 
     }
     .rsvp .subtitle {
-      font-size: clamp(18px, 4vw, 24px);
-      margin-bottom: 18px;
+      font-size: clamp(20px, 5vw, 26px);
+      margin-bottom: 22px;
     }
     .rsvp .note {
-      font-size: 15px;
-      margin-bottom: 28px;
+      font-size: 16px;
+      margin-bottom: 32px;
       opacity: 0.9;
     }
     .rsvp form {
@@ -618,8 +695,8 @@
     }
     .rsvp label {
       display: block;
-      font-size: 15px;
-      margin: 18px 0 6px;
+      font-size: 16px;
+      margin: 22px 0 8px;
       font-weight: 500;
     }
     .rsvp input[type="text"] {
@@ -627,85 +704,89 @@
       border: none;
       border-bottom: 1px solid rgba(0,0,0,0.3);
       background: transparent;
-      padding: 10px 0;
+      padding: 11px 0;
       color: var(--accent-text);
       outline: none;
-      font-size: 15px;
+      font-size: 16px;
     }
     .rsvp input::placeholder { color: rgba(0,0,0,0.4); }
     .radio-group {
-      margin: 12px 0 8px;
+      margin: 14px 0 10px;
     }
     .radio-group label {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 15px;
+      gap: 12px;
+      font-size: 16px;
       font-weight: normal;
-      margin: 10px 0;
+      margin: 12px 0;
     }
-    .radio-group input[type="radio"] { accent-color: var(--accent); width: 17px; height: 17px; }
+    .radio-group input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; }
     .rsvp button {
       width: 100%;
-      margin-top: 35px;
-      padding: 14px;
+      margin-top: 40px;
+      padding: 15px;
       border: none;
       border-radius: 50px;
       background: var(--accent);
       color: #fff;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
       cursor: pointer;
-      transition: 0.25s;
+      transition: 0.3s;
+      letter-spacing: 1px;
     }
-    .rsvp button:hover { background: var(--accent-dark); }
+    .rsvp button:hover { 
+      background: var(--accent-dark); 
+      transform: translateY(-3px);
+    }
 
     /* ===== АДАПТИВНОСТЬ ===== */
     @media (max-width: 600px) {
       section, .music, .rsvp, .story, .invite-block, .calendar-block, 
       .dresscode-section, .details-section, .slider-section, .location, .timing {
-        padding: 40px 15px;
+        padding: 45px 16px;
       }
       .photos {
-        gap: 12px;
+        gap: 14px;
       }
       .photo {
-        padding: 10px 10px 16px 10px;
+        padding: 12px 12px 18px 12px;
       }
       .photo img {
-        max-width: 150px;
+        max-width: 155px;
       }
       .frame {
-        padding: 14px 14px 22px 14px;
+        padding: 16px 16px 26px 16px;
       }
       .frame img {
-        max-width: 300px;
+        max-width: 320px;
       }
       .slider-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 20px;
+        width: 38px;
+        height: 38px;
+        font-size: 22px;
       }
-      .btn-prev { left: 8px; }
-      .btn-next { right: 8px; }
-      .heart-number { width: 38px; height: 38px; }
-      .heart-number i { font-size: 38px; }
-      .heart-number span { font-size: 14px; }
-      .days { gap: 5px; font-size: 14px; }
+      .btn-prev { left: 10px; }
+      .btn-next { right: 10px; }
+      .heart-number { width: 40px; height: 40px; }
+      .heart-number i { font-size: 40px; }
+      .heart-number span { font-size: 15px; }
+      .days { gap: 7px; font-size: 16px; }
       .polaroid-card {
-        max-width: 140px;
+        max-width: 145px;
       }
       .polaroid-card img {
-        max-width: 120px;
+        max-width: 125px;
       }
-      .timeline { gap: 30px; }
-      .icon { font-size: 34px; }
+      .timeline { gap: 36px; }
+      .icon { font-size: 38px; }
       .wedding-block .timer .timer-item {
-        min-width: 60px;
-        padding: 10px 5px;
+        min-width: 65px;
+        padding: 12px 6px;
       }
       .wedding-block .content {
-        padding: 40px 15px 35px 15px;
+        padding: 45px 16px 40px 16px;
       }
       .names {
         bottom: 10%;
@@ -714,38 +795,38 @@
 
     @media (max-width: 400px) {
       .photo img {
-        max-width: 120px;
+        max-width: 125px;
       }
       .photo {
-        padding: 8px 8px 14px 8px;
+        padding: 10px 10px 15px 10px;
       }
       .frame img {
-        max-width: 240px;
+        max-width: 250px;
       }
       .wedding-block .timer .timer-digit {
-        font-size: clamp(30px, 9vw, 48px);
+        font-size: clamp(34px, 10vw, 52px);
       }
       .wedding-block .timer {
-        gap: 8px;
+        gap: 10px;
       }
       .wedding-block .timer .timer-item {
-        min-width: 55px;
-        padding: 8px 4px;
+        min-width: 58px;
+        padding: 10px 5px;
       }
       .polaroid-card {
-        max-width: 120px;
+        max-width: 125px;
       }
       .polaroid-card img {
-        max-width: 105px;
+        max-width: 108px;
       }
       .slider-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
       }
-      .heart-number { width: 34px; height: 34px; }
-      .heart-number i { font-size: 34px; }
-      .heart-number span { font-size: 13px; }
+      .heart-number { width: 36px; height: 36px; }
+      .heart-number i { font-size: 36px; }
+      .heart-number span { font-size: 14px; }
     }
   </style>
 </head>
@@ -762,32 +843,32 @@
 </section>
 
 <!-- МУЗЫКА -->
-<div class="music">
+<div class="music animate-on-scroll">
   <button id="musicToggleBtn"><i class="fas fa-play"></i></button>
   <div class="music-text">ВКЛЮЧИТЬ / ВЫКЛЮЧИТЬ МУЗЫКУ</div>
   <audio id="weddingAudio" src="музыка.mp3" loop preload="auto"></audio>
 </div>
 
-<!-- ИСТОРИЯ (А & Е вместо В + К) -->
-<section class="story">
+<!-- ИСТОРИЯ (А & Е, галочка чёрная) -->
+<section class="story animate-on-scroll">
   <div class="photos">
     <div class="photo"><img src="1.JPG" alt="Детское фото"></div>
     <div class="photo"><img src="2.JPG" alt="Детское фото 2"></div>
   </div>
-  <div class="love">А <span class="heart-icon">&</span> Е</div>
+  <div class="love">А <span class="amp-icon">&</span> Е</div>
   <div class="title">Узнаете этих детишек?</div>
   <div class="text">Да-да, это мы!<br><br>Время летит так быстро, представляете? И вот мы приняли решение, что пора жениться</div>
 </section>
 
 <!-- РОДНЫЕ И ЛЮБИМЫЕ -->
-<section class="invite-block">
+<section class="invite-block animate-on-scroll">
   <div class="frame"><img src="3.PNG" alt="Пара"></div>
   <h2>РОДНЫЕ И ЛЮБИМЫЕ!</h2>
   <p>Хотим, чтобы вы разделили с нами радость и были на торжестве в самый лучший и трогательный день в нашей жизни!</p>
 </section>
 
 <!-- КАЛЕНДАРЬ -->
-<section class="calendar-block">
+<section class="calendar-block animate-on-scroll">
   <div class="month">— Сентябрь 2026 —</div>
   <div class="weekdays"><span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span></div>
   <div class="days">
@@ -810,7 +891,7 @@
 </section>
 
 <!-- МЕСТО ПРОВЕДЕНИЯ -->
-<section class="location">
+<section class="location animate-on-scroll">
   <h2>МЕСТО<br>ПРОВЕДЕНИЯ</h2>
   <div class="sub">location</div>
   <div class="info">
@@ -825,7 +906,7 @@
 </section>
 
 <!-- ТАЙМИНГ ДНЯ -->
-<section class="timing">
+<section class="timing animate-on-scroll">
   <h2>ТАЙМИНГ ДНЯ</h2>
   <div class="sub">Timing</div>
   <div class="timeline">
@@ -838,14 +919,14 @@
 </section>
 
 <!-- ДРЕСС-КОД -->
-<section class="dresscode-section">
+<section class="dresscode-section animate-on-scroll">
   <h2>ДРЕСС - КОД</h2>
   <div class="subtitle">dress-code</div>
   <p>«Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!<br><br>Поддержите нас вашими улыбками и объятиями, а также красивыми и элегантными нарядами в пастельных тонах.<br><br>Захватите с собой удобную обувь для танцев!»</p>
 </section>
 
 <!-- ДЕТАЛИ -->
-<section class="details-section">
+<section class="details-section animate-on-scroll">
   <h2>ДЕТАЛИ</h2>
   <div class="subtitle">details</div>
   <p>Никакой суеты и торжественных речей. Только близкие люди, без которых мы не представляем этот день, атмосфера наполненная любовью и много веселья!</p>
@@ -854,7 +935,7 @@
 </section>
 
 <!-- СЛАЙДЕР -->
-<section class="slider-section">
+<section class="slider-section animate-on-scroll">
   <div class="slider-container">
     <div class="slider-wrapper" id="sliderWrapper">
       <div class="slide"><img src="слайдер1.JPG" alt="Фото 1"></div>
@@ -894,7 +975,7 @@
 </section>
 
 <!-- АНКЕТА ГОСТЯ -->
-<section class="rsvp">
+<section class="rsvp animate-on-scroll">
   <div class="container">
     <h2>АНКЕТА ГОСТЯ</h2>
     <p class="subtitle">Подтвердить присутствие до 01.08.2026</p>
@@ -911,7 +992,7 @@
       <label>Если Вы придете с парой или семьей, то впишите все имена</label>
       <input type="text" name="guests" placeholder="Имя/имена">
 
-      <label style="margin-top: 20px;">Предпочтения в напитках</label>
+      <label style="margin-top: 22px;">Предпочтения в напитках</label>
       <div class="radio-group">
         <label><input type="radio" name="drink" value="red_wine"> Красное вино</label>
         <label><input type="radio" name="drink" value="white_wine"> Белое вино</label>
@@ -920,12 +1001,12 @@
         <label><input type="radio" name="drink" value="cognac"> Коньяк</label>
         <label><input type="radio" name="drink" value="non_alcoholic"> Безалкогольные напитки</label>
       </div>
-      <input type="text" name="drink_other" placeholder="Другое (впишите свой вариант)" style="margin-top: 5px;">
+      <input type="text" name="drink_other" placeholder="Другое (впишите свой вариант)" style="margin-top: 6px;">
 
-      <label style="margin-top: 20px;">Пищевая аллергия</label>
+      <label style="margin-top: 22px;">Пищевая аллергия</label>
       <input type="text" name="allergy" placeholder="Укажите, если есть">
 
-      <label style="margin-top: 20px;">Нужен ли Вам трансфер?</label>
+      <label style="margin-top: 22px;">Нужен ли Вам трансфер?</label>
       <div class="radio-group">
         <label><input type="radio" name="transfer" value="yes"> Да</label>
         <label><input type="radio" name="transfer" value="no"> Нет</label>
@@ -937,6 +1018,26 @@
 </section>
 
 <script>
+  // === АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ===
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
   // Музыка
   const audio = document.getElementById('weddingAudio');
   const toggleBtn = document.getElementById('musicToggleBtn');
