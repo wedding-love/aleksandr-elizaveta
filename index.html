@@ -169,7 +169,7 @@
       color: #2c2c2c;
     }
 
-    /* ===== ИСТОРИЯ + ФОТО ПОЛАРОИД ===== */
+    /* ===== ИСТОРИЯ + ФОТО ПОЛАРОИД (КВАДРАТНЫЕ И НА ОДНОЙ СТРОКЕ) ===== */
     .story {
       background: #ffffff;
       text-align: center;
@@ -199,7 +199,7 @@
       width: 100%;
       max-width: 220px;
       height: auto;
-      aspect-ratio: 3 / 5.2;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 2px;
       display: block;
@@ -416,7 +416,7 @@
       width: 100%;
       max-width: 160px;
       height: auto;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
     }
@@ -463,7 +463,7 @@
     .timing .title { font-size: 22px; font-weight: 500; color: var(--accent-text); }
     .desc { font-size: 16px; opacity: 0.85; margin-top: 8px; font-style: italic; }
 
-    /* ===== ДРЕСС-КОД, ДЕТАЛИ ===== */
+    /* ===== ДРЕСС-КОД, ДЕТАЛИ (без кавычек) ===== */
     .dresscode-section, .wishes-section, .details-section {
       background: #ffffff;
       text-align: center;
@@ -487,7 +487,6 @@
       line-height: 1.8;
       margin-bottom: 20px;
     }
-    /* Стили для двух абзацев дресс-кода */
     .dresscode-text {
       max-width: 600px;
       margin: 0 auto;
@@ -630,7 +629,7 @@
       line-height: 1.3;
       margin: 0;
       padding-top: 35px;
-      white-space: nowrap; /* Запрещаем перенос строки */
+      white-space: nowrap;
     }
     
     .wedding-block .timer {
@@ -803,7 +802,7 @@
         bottom: 10%;
       }
       .wedding-block h1 {
-        white-space: normal; /* На маленьких экранах разрешаем перенос, если не влезает */
+        white-space: normal;
         font-size: clamp(22px, 7vw, 40px);
       }
     }
@@ -864,7 +863,7 @@
   <audio id="weddingAudio" src="музыка.mp3" loop preload="auto"></audio>
 </div>
 
-<!-- ИСТОРИЯ (А & Е, галочка чёрная) -->
+<!-- ИСТОРИЯ (А & Е) - фото квадратные и на одной строке -->
 <section class="story animate-on-scroll">
   <div class="photos">
     <div class="photo"><img src="1.JPG" alt="Детское фото"></div>
@@ -872,7 +871,7 @@
   </div>
   <div class="love">А <span class="amp-icon">&</span> Е</div>
   <div class="title">Узнаете этих детишек?</div>
-  <div class="text">Да-да, это мы!<br><br>Время летит так быстро, представляете? И вот мы приняли решение, что пора жениться</div>
+  <div class="text">Да-да, это мы!<br><br>Время летит так быстро, представляете? И вот мы приняли решение, что пора жениться!</div>
 </section>
 
 <!-- РОДНЫЕ И ЛЮБИМЫЕ -->
@@ -902,7 +901,7 @@
     <span></span><span></span><span></span><span></span>
   </div>
   <div class="calendar-date">05.09.2026</div>
-  <p class="footer-text">Мы будем безумно рады видеть вас в кругу наших гостей</p>
+  <p class="footer-text">Мы будем безумно рады видеть вас в кругу наших гостей!</p>
 </section>
 
 <!-- МЕСТО ПРОВЕДЕНИЯ -->
@@ -933,13 +932,13 @@
   </div>
 </section>
 
-<!-- ДРЕСС-КОД (два абзаца, без разделителей, один цвет) -->
+<!-- ДРЕСС-КОД (без кавычек) -->
 <section class="dresscode-section animate-on-scroll">
   <h2>ДРЕСС - КОД</h2>
   <div class="subtitle">dress-code</div>
   <div class="dresscode-text">
-    <p>«Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню! Поддержите нас вашими улыбками и объятиями, а также красивыми и элегантными нарядами в пастельных тонах.</p>
-    <p>Захватите с собой удобную обувь для танцев!»</p>
+    <p>Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню! Поддержите нас вашими улыбками и объятиями, а также красивыми и элегантными нарядами в пастельных тонах.</p>
+    <p>Захватите с собой удобную обувь для танцев!</p>
   </div>
 </section>
 
@@ -966,7 +965,7 @@
   <div class="slider-dots" id="sliderDots"></div>
 </section>
 
-<!-- ТАЙМЕР (текст в одну строку) -->
+<!-- ТАЙМЕР -->
 <section class="wedding-block">
   <div class="overlay"></div>
   <div class="content">
