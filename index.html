@@ -487,6 +487,35 @@
       line-height: 1.8;
       margin-bottom: 20px;
     }
+    /* Новые стили для красивого расположения текста дресс-кода */
+    .dresscode-text {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .dresscode-text .intro {
+      font-size: 19px;
+      margin-bottom: 30px;
+      font-style: italic;
+      color: #2c2c2c;
+    }
+    .dresscode-text .highlight {
+      font-size: 22px;
+      margin: 25px 0 15px;
+      color: var(--accent-dark);
+      letter-spacing: 2px;
+    }
+    .dresscode-text .details {
+      font-size: 17px;
+      margin-bottom: 25px;
+      color: #555;
+    }
+    .dresscode-text .accent-line {
+      width: 50px;
+      height: 1px;
+      background: var(--accent);
+      margin: 20px auto;
+    }
     .btn-chat {
       display: inline-block;
       padding: 14px 34px;
@@ -613,13 +642,14 @@
     }
     
     .wedding-block h1 {
-      font-size: clamp(30px, 7vw, 60px);
+      font-size: clamp(24px, 6vw, 52px);
       letter-spacing: 4px;
       font-weight: 400;
       text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
       line-height: 1.3;
       margin: 0;
       padding-top: 35px;
+      white-space: nowrap; /* Запрещаем перенос строки */
     }
     
     .wedding-block .timer {
@@ -791,6 +821,10 @@
       .names {
         bottom: 10%;
       }
+      .wedding-block h1 {
+        white-space: normal; /* На маленьких экранах разрешаем перенос, если не влезает */
+        font-size: clamp(22px, 7vw, 40px);
+      }
     }
 
     @media (max-width: 400px) {
@@ -898,7 +932,7 @@
     <p class="main"></p>
     Grand Chalet, д. Большие Новосёлки, ул. Садовая, д. 37Б
   </div>
-  <a href="https://yandex.by/maps/org/grand_chalet/203636369081/?ll=27.124639%2C53.740722&mode=search&sctx=ZAAAAAgBEAAaKAoSCXmu78NBjjtAES%2F6CtKM80pAEhIJ%2BfTYlgFn0T8RuvlGdM%2B6uj8iBgABAgMEBSgKOABAnQFIAWI6cmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L0VuYWJsZWQ9MWI6cmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L01heGFkdj0xNWJEcmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L1JlZ2lvbklkcz1bMSwxMDE3NF1iQHJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL01heGFkdlRvcE1peC9NYXhhZHZGb3JNaXg9MTBqAnVhnQHNzMw9oAEAqAEAvQGTFW3VwgEGuc2xzfYFggIMR3JhbmQgQ2hhbGV0igIAkgIAmgIMZGVza3RvcC1tYXBz&sll=27.124639%2C53.740722&sspn=0.016994%2C0.006551&text=Grand%20Chalet&z=16" class="btn-location">ПОКАЗАТЬ НА КАРТЕ</a>
+  <a href="https://yandex.by/maps/org/grand_chalet/203636369081/?ll=27.124639%2C53.740722&mode=search&sctx=ZAAAAAgBEAAaKAoSCXmu78NBjjtAES%2F6CtKM80pAEhIJ%2BfTYlgFn0T8RuvlGdM%2B6uj8iBgABAgMEBSgKOABAnQFIAWI6cmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L0VuYWJsZWQ9MWI6cmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L01heGFkdj0xNWJEcmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L1JlZ2lvbklkcz1bMSwxMDE3NF1iQHJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL01heGFkdlRvcE1peC9NYXhhZGZGb3JNaXg9MTBqAnVhnQHNzMw9oAEAqAEAvQGTFW3VwgEGuc2xzfYFggIMR3JhbmQgQ2hhbGV0igIAkgIAmgIMZGVza3RvcC1tYXBz&sll=27.124639%2C53.740722&sspn=0.016994%2C0.006551&text=Grand%20Chalet&z=16" class="btn-location">ПОКАЗАТЬ НА КАРТЕ</a>
   <div class="photos-loc">
     <div class="polaroid-card p1-wrap"><img src="место1.PNG" alt="Локация 1"></div>
     <div class="polaroid-card p2-wrap"><img src="место2.JPG" alt="Локация 2"></div>
@@ -918,11 +952,18 @@
   </div>
 </section>
 
-<!-- ДРЕСС-КОД -->
+<!-- ДРЕСС-КОД (красивое расположение абзацами) -->
 <section class="dresscode-section animate-on-scroll">
   <h2>ДРЕСС - КОД</h2>
   <div class="subtitle">dress-code</div>
-  <p>«Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!<br><br>Поддержите нас вашими улыбками и объятиями, а также красивыми и элегантными нарядами в пастельных тонах.<br><br>Захватите с собой удобную обувь для танцев!»</p>
+  <div class="dresscode-text">
+    <p class="intro">«Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!»</p>
+    <div class="accent-line"></div>
+    <p class="highlight">Поддержите нас вашими улыбками и объятиями</p>
+    <p class="details">А также красивыми и элегантными нарядами в пастельных тонах.</p>
+    <div class="accent-line"></div>
+    <p class="details">Захватите с собой удобную обувь для танцев!</p>
+  </div>
 </section>
 
 <!-- ДЕТАЛИ -->
@@ -948,11 +989,11 @@
   <div class="slider-dots" id="sliderDots"></div>
 </section>
 
-<!-- ТАЙМЕР -->
+<!-- ТАЙМЕР (текст в одну строку) -->
 <section class="wedding-block">
   <div class="overlay"></div>
   <div class="content">
-    <h1>ДО НАШЕЙ СВАДЬБЫ<br>ОСТАЛОСЬ:</h1>
+    <h1>ДО НАШЕЙ СВАДЬБЫ ОСТАЛОСЬ:</h1>
     <div class="timer">
       <div class="timer-item">
         <span class="timer-digit" id="weddingDays">0</span>
