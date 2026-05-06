@@ -19,6 +19,7 @@
       background-color: #ffffff;
       color: #1e1e1e;
       line-height: 1.5;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, .hero .names, .date, .love, .title, .month, .location h2, .timing h2, 
@@ -169,12 +170,14 @@
       color: #2c2c2c;
     }
 
-    /* ===== ИСТОРИЯ + ФОТО ПОЛАРОИД (КВАДРАТНЫЕ, БОЛЬШИЕ, НА ОДНОЙ СТРОКЕ) ===== */
+    /* ===== ИСТОРИЯ + ФОТО ПОЛАРОИД (КВАДРАТНЫЕ, НА ОДНОЙ СТРОКЕ БЕЗ ПРОКРУТКИ) ===== */
     .story {
       background: #ffffff;
       text-align: center;
       padding: 70px 25px;
     }
+    
+    /* Контейнер для фото — строго одна строка, без переноса и прокрутки */
     .photos {
       display: flex;
       justify-content: center;
@@ -182,15 +185,16 @@
       gap: 40px;
       flex-wrap: nowrap;
       margin-bottom: 50px;
-      padding: 0 20px;
+      overflow-x: visible;
+      width: 100%;
     }
+    
     .photo {
       background: #fff;
       padding: 20px 20px 32px 20px;
       box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
       flex-shrink: 0;
       transition: transform 0.4s ease;
-      width: auto;
     }
     .photo:hover {
       animation: gentleShake 0.6s ease;
@@ -208,6 +212,7 @@
     .photo:last-child {
       transform: translateY(8px) translateX(4px) rotate(3deg);
     }
+    
     .love {
       font-size: clamp(40px, 8vw, 66px);
       margin-bottom: 20px;
@@ -749,11 +754,10 @@
       transform: translateY(-3px);
     }
 
-    /* ===== АДАПТИВНОСТЬ ===== */
+    /* ===== АДАПТИВНОСТЬ - ДЕТСКИЕ ФОТО ВСЕГДА НА ОДНОЙ СТРОКЕ ===== */
     @media (max-width: 700px) {
       .photos {
-        gap: 20px;
-        flex-wrap: wrap;
+        gap: 30px;
       }
       .photo img {
         width: 220px;
@@ -763,17 +767,17 @@
         padding: 15px 15px 25px 15px;
       }
       .photo:first-child {
-        transform: translateY(0) translateX(0) rotate(-2deg);
+        transform: translateY(-4px) translateX(-2px) rotate(-2deg);
       }
       .photo:last-child {
-        transform: translateY(0) translateX(0) rotate(2deg);
+        transform: translateY(4px) translateX(2px) rotate(2deg);
       }
     }
 
-    @media (max-width: 600px) {
-      section, .music, .rsvp, .story, .invite-block, .calendar-block, 
-      .dresscode-section, .details-section, .slider-section, .location, .timing {
-        padding: 45px 16px;
+    @media (max-width: 550px) {
+      .photos {
+        gap: 20px;
+        justify-content: center;
       }
       .photo img {
         width: 170px;
@@ -781,6 +785,33 @@
       }
       .photo {
         padding: 12px 12px 18px 12px;
+      }
+      .photo:first-child {
+        transform: translateY(-3px) translateX(-1px) rotate(-2deg);
+      }
+      .photo:last-child {
+        transform: translateY(3px) translateX(1px) rotate(2deg);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .photos {
+        gap: 15px;
+      }
+      .photo img {
+        width: 140px;
+        height: 140px;
+      }
+      .photo {
+        padding: 10px 10px 15px 10px;
+      }
+    }
+
+    /* Остальные медиа-запросы для других блоков */
+    @media (max-width: 600px) {
+      section, .music, .rsvp, .story, .invite-block, .calendar-block, 
+      .dresscode-section, .details-section, .slider-section, .location, .timing {
+        padding: 45px 16px;
       }
       .frame {
         padding: 16px 16px 26px 16px;
@@ -824,13 +855,6 @@
     }
 
     @media (max-width: 400px) {
-      .photo img {
-        width: 140px;
-        height: 140px;
-      }
-      .photo {
-        padding: 10px 10px 15px 10px;
-      }
       .frame img {
         max-width: 250px;
       }
@@ -880,7 +904,7 @@
   <audio id="weddingAudio" src="музыка.mp3" loop preload="auto"></audio>
 </div>
 
-<!-- ИСТОРИЯ (А & Е) - квадратные большие фото на одной строке -->
+<!-- ИСТОРИЯ (А & Е) - квадратные фото строго на одной строке без прокрутки -->
 <section class="story animate-on-scroll">
   <div class="photos">
     <div class="photo"><img src="1.JPG" alt="Детское фото"></div>
